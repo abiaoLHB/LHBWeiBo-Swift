@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		392AB19DB71EBE5E2DD76495 /* Pods_LHBWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */; };
 		EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */; };
-		EFCBF60D1D61B9FF00539F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60C1D61B9FF00539F06 /* ViewController.swift */; };
 		EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF60E1D61B9FF00539F06 /* Main.storyboard */; };
 		EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6111D61B9FF00539F06 /* Assets.xcassets */; };
 		EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */; };
@@ -40,7 +39,6 @@
 		84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		EFCBF6071D61B9FF00539F06 /* LHBWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LHBWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFCBF60C1D61B9FF00539F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EFCBF60F1D61B9FF00539F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFCBF6111D61B9FF00539F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFCBF6141D61B9FF00539F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +94,59 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF4AFDA41D61C27100248735 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF4AFDA51D61C27100248735 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		EF4AFDA61D61C27100248735 /* MainWibo */ = {
+			isa = PBXGroup;
+			children = (
+				EF4AFDA81D61C27100248735 /* Home */,
+				EF4AFDA91D61C27100248735 /* Message */,
+				EF4AFDA71D61C27100248735 /* Discover */,
+				EF4AFDAA1D61C27100248735 /* Profile */,
+			);
+			path = MainWibo;
+			sourceTree = "<group>";
+		};
+		EF4AFDA71D61C27100248735 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		EF4AFDA81D61C27100248735 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EF4AFDA91D61C27100248735 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		EF4AFDAA1D61C27100248735 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EFCBF5FE1D61B9FF00539F06 = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +172,10 @@
 		EFCBF6091D61B9FF00539F06 /* LHBWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDA41D61C27100248735 /* Extension */,
+				EF4AFDA51D61C27100248735 /* Lib */,
+				EF4AFDA61D61C27100248735 /* MainWibo */,
 				EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */,
-				EFCBF60C1D61B9FF00539F06 /* ViewController.swift */,
 				EFCBF60E1D61B9FF00539F06 /* Main.storyboard */,
 				EFCBF6111D61B9FF00539F06 /* Assets.xcassets */,
 				EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */,
@@ -331,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFCBF60D1D61B9FF00539F06 /* ViewController.swift in Sources */,
 				EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,10 +529,13 @@
 			baseConfigurationReference = 0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.company.LHBWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -489,10 +544,13 @@
 			baseConfigurationReference = 84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.company.LHBWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
