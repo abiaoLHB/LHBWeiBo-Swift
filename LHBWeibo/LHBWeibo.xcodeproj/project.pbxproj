@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		392AB19DB71EBE5E2DD76495 /* Pods_LHBWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */; };
+		EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDAC1D61C79900248735 /* MainViewController.swift */; };
+		EF4AFDAF1D61C86100248735 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDAE1D61C86100248735 /* HomeViewController.swift */; };
+		EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB01D61C86F00248735 /* MessageViewController.swift */; };
+		EF4AFDB51D61CDF100248735 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */; };
+		EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */; };
+		EF7A5EE01D62192D0070CEF1 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */; };
 		EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */; };
 		EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF60E1D61B9FF00539F06 /* Main.storyboard */; };
 		EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6111D61B9FF00539F06 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 		0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHBWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		EF4AFDAC1D61C79900248735 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF4AFDAE1D61C86100248735 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EF4AFDB01D61C86F00248735 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		EFCBF6071D61B9FF00539F06 /* LHBWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LHBWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCBF60F1D61B9FF00539F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +123,7 @@
 		EF4AFDA61D61C27100248735 /* MainWibo */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDAB1D61C41400248735 /* Main */,
 				EF4AFDA81D61C27100248735 /* Home */,
 				EF4AFDA91D61C27100248735 /* Message */,
 				EF4AFDA71D61C27100248735 /* Discover */,
@@ -122,6 +135,7 @@
 		EF4AFDA71D61C27100248735 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -129,6 +143,7 @@
 		EF4AFDA81D61C27100248735 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDAE1D61C86100248735 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -136,6 +151,7 @@
 		EF4AFDA91D61C27100248735 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDB01D61C86F00248735 /* MessageViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -143,8 +159,17 @@
 		EF4AFDAA1D61C27100248735 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		EF4AFDAB1D61C41400248735 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EF4AFDAC1D61C79900248735 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		EFCBF5FE1D61B9FF00539F06 = {
@@ -179,6 +204,7 @@
 				EFCBF60E1D61B9FF00539F06 /* Main.storyboard */,
 				EFCBF6111D61B9FF00539F06 /* Assets.xcassets */,
 				EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */,
+				EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */,
 				EFCBF6161D61B9FF00539F06 /* Info.plist */,
 			);
 			path = LHBWeibo;
@@ -311,6 +337,7 @@
 			files = (
 				EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */,
 				EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */,
+				EF7A5EE01D62192D0070CEF1 /* MainVCSettings.json in Resources */,
 				EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +411,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */,
 				EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */,
+				EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */,
+				EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */,
+				EF4AFDAF1D61C86100248735 /* HomeViewController.swift in Sources */,
+				EF4AFDB51D61CDF100248735 /* DiscoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
