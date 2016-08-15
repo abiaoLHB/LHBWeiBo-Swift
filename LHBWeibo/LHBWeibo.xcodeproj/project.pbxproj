@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392AB19DB71EBE5E2DD76495 /* Pods_LHBWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */; };
 		EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */; };
 		EFCBF60D1D61B9FF00539F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60C1D61B9FF00539F06 /* ViewController.swift */; };
 		EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF60E1D61B9FF00539F06 /* Main.storyboard */; };
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHBWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		EFCBF6071D61B9FF00539F06 /* LHBWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LHBWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCBF60C1D61B9FF00539F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392AB19DB71EBE5E2DD76495 /* Pods_LHBWeibo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B65800E2D8CFB4C86BB23BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3A8CE3AFE263A558FAE0138 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */,
+				84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EFCBF5FE1D61B9FF00539F06 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				EFCBF61E1D61B9FF00539F06 /* LHBWeiboTests */,
 				EFCBF6291D61B9FF00539F06 /* LHBWeiboUITests */,
 				EFCBF6081D61B9FF00539F06 /* Products */,
+				B3A8CE3AFE263A558FAE0138 /* Pods */,
+				0B65800E2D8CFB4C86BB23BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFCBF62F1D61B9FF00539F06 /* Build configuration list for PBXNativeTarget "LHBWeibo" */;
 			buildPhases = (
+				5C87D64BF8034A53AA3916C3 /* Check Pods Manifest.lock */,
 				EFCBF6031D61B9FF00539F06 /* Sources */,
 				EFCBF6041D61B9FF00539F06 /* Frameworks */,
 				EFCBF6051D61B9FF00539F06 /* Resources */,
+				CD309442CE26DE01310129FC /* Embed Pods Frameworks */,
+				659393C5DEDA2F412B64834A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +277,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C87D64BF8034A53AA3916C3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		659393C5DEDA2F412B64834A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD309442CE26DE01310129FC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFCBF6031D61B9FF00539F06 /* Sources */ = {
@@ -399,6 +474,7 @@
 		};
 		EFCBF6301D61B9FF00539F06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
@@ -410,6 +486,7 @@
 		};
 		EFCBF6311D61B9FF00539F06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
@@ -484,6 +561,7 @@
 				EFCBF6311D61B9FF00539F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFCBF6321D61B9FF00539F06 /* Build configuration list for PBXNativeTarget "LHBWeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +570,7 @@
 				EFCBF6341D61B9FF00539F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFCBF6351D61B9FF00539F06 /* Build configuration list for PBXNativeTarget "LHBWeiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +579,7 @@
 				EFCBF6371D61B9FF00539F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
