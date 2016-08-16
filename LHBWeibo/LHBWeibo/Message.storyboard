@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zhz-zh-WZw">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--消息-->
+        <scene sceneID="fdz-ch-JL4">
+            <objects>
+                <navigationController id="zhz-zh-WZw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="消息" image="tabbar_message_center" selectedImage="tabbar_message_center_highlighted" id="pRw-yn-Peb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="AbstractSizeClassScreen[heightClass=regular-widthClass=compact]"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zUF-cp-WUF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4qp-X2-Xb0" kind="relationship" relationship="rootViewController" id="WBH-4C-kzA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6rb-hs-6I0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1483.5" y="-368.25"/>
+        </scene>
+        <!--消息-->
+        <scene sceneID="lWL-ru-ABc">
+            <objects>
+                <tableViewController id="4qp-X2-Xb0" customClass="MessageViewController" customModule="LHBWeibo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U6B-9M-TCO">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="4qp-X2-Xb0" id="Vqn-Aj-QdO"/>
+                            <outlet property="delegate" destination="4qp-X2-Xb0" id="7ln-ew-Tta"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="消息" id="ggT-DQ-5Qz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bt3-wK-avA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-847.5" y="-368.25"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar_message_center" width="30" height="30"/>
+        <image name="tabbar_message_center_highlighted" width="30" height="30"/>
+    </resources>
+</document>

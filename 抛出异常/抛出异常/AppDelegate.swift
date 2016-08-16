@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  LHBWeibo
+//  抛出异常
 //
-//  Created by LHB on 16/8/15.
+//  Created by LHB on 16/8/16.
 //  Copyright © 2016年 LHB. All rights reserved.
 //
 
@@ -15,15 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        UITabBar.appearance().tintColor = UIColor.orangeColor()
-        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-        //纯代码方案
-        //window = UIWindow(frame:UIScreen.mainScreen().bounds)
-        //window?.backgroundColor = UIColor.whiteColor()
-        //window?.rootViewController = MainViewController()
-        //window?.makeKeyAndVisible()
-        
+        // Override point for customization after application launch.
         return true
     }
 

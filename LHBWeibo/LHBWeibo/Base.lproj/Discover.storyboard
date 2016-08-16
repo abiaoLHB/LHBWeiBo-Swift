@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d9v-Nt-Wbb">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--发现-->
+        <scene sceneID="sLX-yJ-TR3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8el-If-eBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="psv-f6-oJI" customClass="DiscoverViewController" customModule="LHBWeibo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OsO-Ha-gHt">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="psv-f6-oJI" id="zeH-f8-m0M"/>
+                            <outlet property="delegate" destination="psv-f6-oJI" id="srC-Zg-Y0E"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="发现" id="Z8i-Uy-b7g"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-883.5" y="282.75"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="yj6-D7-yms">
+            <objects>
+                <navigationController id="d9v-Nt-Wbb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar_discover" selectedImage="tabbar_discover_highlighted" id="QhU-Va-bik"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="AbstractSizeClassScreen[heightClass=regular-widthClass=compact]"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kf3-QX-PRA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="psv-f6-oJI" kind="relationship" relationship="rootViewController" id="ATQ-qN-2zS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R0Q-wM-AcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1537.5" y="297.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar_discover" width="30" height="30"/>
+        <image name="tabbar_discover_highlighted" width="30" height="30"/>
+    </resources>
+</document>

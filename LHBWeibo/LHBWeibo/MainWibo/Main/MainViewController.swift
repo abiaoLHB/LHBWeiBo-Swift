@@ -9,97 +9,114 @@
 import UIKit
 
 class MainViewController: UITabBarController {
+    //MARK: - 懒加载属性
+    //private  lazy var composeBtn : UIButton = UIButton.creatUIButton("tabbar_compose_icon_add", bgImageName: "tabbar_compose_button")
+   private lazy var composeBtn : UIButton = UIButton(imageName:"tabbar_compose_icon_add",bgImageName:"tabbar_compose_button")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        addChildViewController("HomeViewController", title: "首页", imageName: "tabbar_home")
-//         addChildViewController("MessageViewController", title: "消息", imageName: "tabbar_message_center")
-//         addChildViewController("DiscoverViewController", title: "发现", imageName: "tabbar_discover")
-//         addChildViewController("ProfileViewController", title: "我", imageName: "tabbar_profile")
-        
-        //从json文件读取控制器
-        //1、获取json文件的路径
-        guard let jsonPath = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil) else{
-            print("没有获取到对应文件的路径")
-            return
-        }
-        
-        //2、读取json文件中的内容
-        guard let jsonData = NSData(contentsOfFile: jsonPath) else {
-            print("没有获取到json文件中的数据")
-            return
-        }
-        
-        //3、data转成数组 [[String : AnyObject]] 表示数组里面放的字典
-        guard let anyobject = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) else{
-            return
-        }
-        
-       guard let dicArr = anyobject as? [[String : AnyObject]] else{
-            return
-        }
-        
-        //4、遍历字典。获取对应的信息
-        for dict in dicArr {
-            //4.1获取控制器的对应的字符串
-          guard let vcName = dict["vcName"] as? String else{
-                continue
-            }
-            //4.1获取控制器显示的title
-            guard let title = dict["title"] as? String else{
-                continue
-            }
-            //4.3获取控制器显示的图标名称
-            guard let imageName = dict["imageName"] as? String else{
-                continue
-            }
-            
-            addChildViewController(vcName, title: title, imageName: imageName)
-            
-        }
-        
-        
-        
+       setupComposeBtn()
     }
     
-        
-        
-     private func addChildViewController(childVCName : String,title : String,imageName : String){
-
-        //0、获取命名空间(转成字符串类型的可选类型)
-        guard let nameSpace = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as? String else{
-            print("拿不到命名空间")
-            return
-        }
-        print(nameSpace)
-        //1、根据字符串获取到对应的class
-        
-        guard let childVCClass = NSClassFromString(nameSpace + "." + childVCName) else{
-            print("没有获取到对应的class")
-            return
-        }
-        
-        //2、将对应的anyObject转成控制器的类型
-        guard let childVCType = childVCClass as? UIViewController.Type else{
-            return
-        }
-        
-        //3、创建对应的控制器对象
-        let childVC = childVCType.init()
-      
-        //4、设置属性
-        childVC.title = title
-        childVC.tabBarItem.title = title
-        childVC.tabBarItem.image = UIImage(named:imageName)
-        childVC.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")
-
-        //5、包装导航控制器
-        let childNav = UINavigationController(rootViewController:childVC)
-        
-        //6、添加控制器
-        addChildViewController(childNav)
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    
     }
-
+    
 }
+
+
+
+
+//MARK: - 设置UI界面
+extension MainViewController{
+    /**
+     设置发布按钮
+     */
+    private func setupComposeBtn(){
+        //1、将composeBtn添加到tabbar上
+        tabBar.addSubview(composeBtn)
+        //2、设置属性
+        /*  已经封装
+        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: .Normal)
+        composeBtn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: .Highlighted)
+        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: .Normal)
+        composeBtn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: .Highlighted)
+        composeBtn.sizeToFit()
+        */
+        
+        //3、设置位置
+        composeBtn.center = CGPointMake(tabBar.center.x, tabBar.bounds.size.height * 0.5)
+        
+        //4、监听按钮点击
+        // Selector两种写法: 1>Selector("composeBtnClick") 2> "composeBtnClick"
+        composeBtn.addTarget(self, action:"composeBtnClick", forControlEvents: .TouchUpInside)
+    }
+    
+    /**
+     设置tabar中的items.可以通过storeboard设置高亮图片，并禁止最中间的item点击
+     */
+    /*
+    private func setupTabbarItems(){
+        //1、遍历所有的item
+        for i in 0..<tabBar.items!.count{
+            //2、获取item
+            let item = tabBar.items![i]
+            //3、如果下标值为2，则该item不可以交互
+            if i == 2 {
+                item.enabled = false
+                continue
+            }
+            //4、设置其他item的选中时候的图片
+            item.selectedImage = UIImage(named: imageNames[i]+"_highlighted")
+            
+        }
+    }
+     */
+}
+
+
+
+
+//MARK: - 事件监听
+extension MainViewController{
+    // 事件监听本质发送消息.但是发送消息是OC的特性
+    // 将方法包装成@SEL --> 类中查找方法列表 --> 根据@SEL找到imp指针(函数指针) --> 执行函数
+    // 如果swift中将一个函数声明称private,那么该函数不会被添加到方法列表中
+    // 如果在private前面加上@objc,那么该方法依然会被添加到方法列表中
+  @objc private func composeBtnClick(){
+        print("composeBtnClick")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

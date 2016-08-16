@@ -20,6 +20,20 @@
 		EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */; };
 		EFCBF6201D61B9FF00539F06 /* LHBWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF61F1D61B9FF00539F06 /* LHBWeiboTests.swift */; };
 		EFCBF62B1D61B9FF00539F06 /* LHBWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF62A1D61B9FF00539F06 /* LHBWeiboUITests.swift */; };
+		EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C171D62DDD000F6A604 /* 纯代码方案.swift */; };
+		EFDD6C1B1D62E49F00F6A604 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C191D62E49F00F6A604 /* Home.storyboard */; };
+		EFDD6C1D1D62E4C000F6A604 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C1C1D62E4C000F6A604 /* Message.storyboard */; };
+		EFDD6C201D62E4D500F6A604 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C1E1D62E4D500F6A604 /* Discover.storyboard */; };
+		EFDD6C221D62E4ED00F6A604 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C211D62E4ED00F6A604 /* Profile.storyboard */; };
+		EFDD6C251D62EB7F00F6A604 /* NULL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C231D62EB7F00F6A604 /* NULL.storyboard */; };
+		EFDD6C281D62F7C700F6A604 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C271D62F7C700F6A604 /* UIButton-Extension.swift */; };
+		EFDD6C2B1D631C6500F6A604 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C2A1D631C6500F6A604 /* BaseViewController.swift */; };
+		EFDD6C2D1D631E8A00F6A604 /* VistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C2C1D631E8A00F6A604 /* VistorView.swift */; };
+		EFDD6C2F1D631E9800F6A604 /* VistorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C2E1D631E9800F6A604 /* VistorView.xib */; };
+		EFDD6C311D6369DE00F6A604 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C301D6369DE00F6A604 /* UIBarButtonItem-Extension.swift */; };
+		EFDD6C3A1D63790A00F6A604 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C381D63790A00F6A604 /* PopoverViewController.swift */; };
+		EFDD6C3B1D63790A00F6A604 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C391D63790A00F6A604 /* PopoverViewController.xib */; };
+		EFDD6C3D1D637A1900F6A604 /* CustomTitleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C3C1D637A1900F6A604 /* CustomTitleBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +75,20 @@
 		EFCBF6261D61B9FF00539F06 /* LHBWeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LHBWeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF62A1D61B9FF00539F06 /* LHBWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHBWeiboUITests.swift; sourceTree = "<group>"; };
 		EFCBF62C1D61B9FF00539F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDD6C171D62DDD000F6A604 /* 纯代码方案.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "纯代码方案.swift"; sourceTree = "<group>"; };
+		EFDD6C1A1D62E49F00F6A604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		EFDD6C1C1D62E4C000F6A604 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Message.storyboard; path = ../../Message.storyboard; sourceTree = "<group>"; };
+		EFDD6C1F1D62E4D500F6A604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
+		EFDD6C211D62E4ED00F6A604 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../../Profile.storyboard; sourceTree = "<group>"; };
+		EFDD6C241D62EB7F00F6A604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NULL.storyboard; sourceTree = "<group>"; };
+		EFDD6C271D62F7C700F6A604 /* UIButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		EFDD6C2A1D631C6500F6A604 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EFDD6C2C1D631E8A00F6A604 /* VistorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistorView.swift; sourceTree = "<group>"; };
+		EFDD6C2E1D631E9800F6A604 /* VistorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VistorView.xib; sourceTree = "<group>"; };
+		EFDD6C301D6369DE00F6A604 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		EFDD6C381D63790A00F6A604 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		EFDD6C391D63790A00F6A604 /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		EFDD6C3C1D637A1900F6A604 /* CustomTitleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitleBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +137,8 @@
 		EF4AFDA41D61C27100248735 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD6C271D62F7C700F6A604 /* UIButton-Extension.swift */,
+				EFDD6C301D6369DE00F6A604 /* UIBarButtonItem-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -136,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */,
+				EFDD6C1E1D62E4D500F6A604 /* Discover.storyboard */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -143,7 +174,9 @@
 		EF4AFDA81D61C27100248735 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD6C371D6378FA00F6A604 /* PopoverView */,
 				EF4AFDAE1D61C86100248735 /* HomeViewController.swift */,
+				EFDD6C191D62E49F00F6A604 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -152,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4AFDB01D61C86F00248735 /* MessageViewController.swift */,
+				EFDD6C1C1D62E4C000F6A604 /* Message.storyboard */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -159,6 +193,7 @@
 		EF4AFDAA1D61C27100248735 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD6C211D62E4ED00F6A604 /* Profile.storyboard */,
 				EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -197,8 +232,11 @@
 		EFCBF6091D61B9FF00539F06 /* LHBWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD6C261D62EBA700F6A604 /* Resouces */,
 				EF4AFDA41D61C27100248735 /* Extension */,
+				EFDD6C341D63734600F6A604 /* CusTomUI */,
 				EF4AFDA51D61C27100248735 /* Lib */,
+				EFDD6C291D631C5300F6A604 /* Base */,
 				EF4AFDA61D61C27100248735 /* MainWibo */,
 				EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */,
 				EFCBF60E1D61B9FF00539F06 /* Main.storyboard */,
@@ -206,6 +244,7 @@
 				EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */,
 				EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */,
 				EFCBF6161D61B9FF00539F06 /* Info.plist */,
+				EFDD6C171D62DDD000F6A604 /* 纯代码方案.swift */,
 			);
 			path = LHBWeibo;
 			sourceTree = "<group>";
@@ -226,6 +265,42 @@
 				EFCBF62C1D61B9FF00539F06 /* Info.plist */,
 			);
 			path = LHBWeiboUITests;
+			sourceTree = "<group>";
+		};
+		EFDD6C261D62EBA700F6A604 /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD6C231D62EB7F00F6A604 /* NULL.storyboard */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
+		EFDD6C291D631C5300F6A604 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD6C2A1D631C6500F6A604 /* BaseViewController.swift */,
+				EFDD6C2C1D631E8A00F6A604 /* VistorView.swift */,
+				EFDD6C2E1D631E9800F6A604 /* VistorView.xib */,
+			);
+			name = Base;
+			path = MainWibo/Base;
+			sourceTree = "<group>";
+		};
+		EFDD6C341D63734600F6A604 /* CusTomUI */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD6C3C1D637A1900F6A604 /* CustomTitleBtn.swift */,
+			);
+			path = CusTomUI;
+			sourceTree = "<group>";
+		};
+		EFDD6C371D6378FA00F6A604 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD6C381D63790A00F6A604 /* PopoverViewController.swift */,
+				EFDD6C391D63790A00F6A604 /* PopoverViewController.xib */,
+			);
+			path = PopoverView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,8 +411,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */,
+				EFDD6C1B1D62E49F00F6A604 /* Home.storyboard in Resources */,
+				EFDD6C221D62E4ED00F6A604 /* Profile.storyboard in Resources */,
 				EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */,
 				EF7A5EE01D62192D0070CEF1 /* MainVCSettings.json in Resources */,
+				EFDD6C251D62EB7F00F6A604 /* NULL.storyboard in Resources */,
+				EFDD6C3B1D63790A00F6A604 /* PopoverViewController.xib in Resources */,
+				EFDD6C1D1D62E4C000F6A604 /* Message.storyboard in Resources */,
+				EFDD6C2F1D631E9800F6A604 /* VistorView.xib in Resources */,
+				EFDD6C201D62E4D500F6A604 /* Discover.storyboard in Resources */,
 				EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,10 +495,17 @@
 			files = (
 				EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */,
 				EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */,
+				EFDD6C3A1D63790A00F6A604 /* PopoverViewController.swift in Sources */,
+				EFDD6C311D6369DE00F6A604 /* UIBarButtonItem-Extension.swift in Sources */,
 				EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */,
 				EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */,
 				EF4AFDAF1D61C86100248735 /* HomeViewController.swift in Sources */,
+				EFDD6C3D1D637A1900F6A604 /* CustomTitleBtn.swift in Sources */,
+				EFDD6C2B1D631C6500F6A604 /* BaseViewController.swift in Sources */,
 				EF4AFDB51D61CDF100248735 /* DiscoverViewController.swift in Sources */,
+				EFDD6C2D1D631E8A00F6A604 /* VistorView.swift in Sources */,
+				EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */,
+				EFDD6C281D62F7C700F6A604 /* UIButton-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +555,33 @@
 				EFCBF6141D61B9FF00539F06 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EFDD6C191D62E49F00F6A604 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFDD6C1A1D62E49F00F6A604 /* Base */,
+			);
+			name = Home.storyboard;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		EFDD6C1E1D62E4D500F6A604 /* Discover.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFDD6C1F1D62E4D500F6A604 /* Base */,
+			);
+			name = Discover.storyboard;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		EFDD6C231D62EB7F00F6A604 /* NULL.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFDD6C241D62EB7F00F6A604 /* Base */,
+			);
+			name = NULL.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
