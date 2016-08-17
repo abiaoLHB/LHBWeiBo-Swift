@@ -18,20 +18,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="192" height="255"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ote-Iq-gUu">
-                    <rect key="frame" x="20" y="20" width="152" height="215"/>
+                    <rect key="frame" x="15" y="15" width="162" height="225"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="n4K-ZV-30J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Box-SB-Igg"/>
-                <constraint firstItem="ote-Iq-gUu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="EkO-Mh-Mgu"/>
+                <constraint firstItem="ote-Iq-gUu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="EkO-Mh-Mgu"/>
                 <constraint firstAttribute="bottom" secondItem="n4K-ZV-30J" secondAttribute="bottom" id="MrC-sn-rZZ"/>
                 <constraint firstAttribute="trailing" secondItem="n4K-ZV-30J" secondAttribute="trailing" id="Pag-IW-am1"/>
-                <constraint firstAttribute="bottom" secondItem="ote-Iq-gUu" secondAttribute="bottom" constant="20" id="XVE-M3-yyg"/>
-                <constraint firstItem="ote-Iq-gUu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="j9x-Iz-rj3"/>
+                <constraint firstAttribute="bottom" secondItem="ote-Iq-gUu" secondAttribute="bottom" constant="15" id="XVE-M3-yyg"/>
+                <constraint firstItem="ote-Iq-gUu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="j9x-Iz-rj3"/>
                 <constraint firstItem="n4K-ZV-30J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ohj-8y-KUy"/>
-                <constraint firstAttribute="trailing" secondItem="ote-Iq-gUu" secondAttribute="trailing" constant="20" id="rGS-5r-Sh8"/>
+                <constraint firstAttribute="trailing" secondItem="ote-Iq-gUu" secondAttribute="trailing" constant="15" id="rGS-5r-Sh8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="52" y="183.5"/>

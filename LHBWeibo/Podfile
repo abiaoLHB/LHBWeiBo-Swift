@@ -3,4 +3,8 @@ use_frameworks!
 
 target 'LHBWeibo' do
     pod 'Alamofire', '~> 3.4'
+    pod'AFNetworking'
+    pod 'SVProgressHUD'
+    pod 'SDWebImage'
+    pod 'SnapKit'
 end

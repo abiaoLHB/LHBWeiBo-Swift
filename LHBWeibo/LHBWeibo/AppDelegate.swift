@@ -5,6 +5,14 @@
 //  Created by LHB on 16/8/15.
 //  Copyright © 2016年 LHB. All rights reserved.
 //
+/*
+ 该项目支持iOS9.0及其以上版本
+ 因为用了iOS9.0的新特性之一：storyBoardRefactor
+ 
+ 静态库分两种：.a 和 .framework 
+ .framework又有两种：静态和动态
+ swift用的是.framework的动态库
+ */
 
 import UIKit
 

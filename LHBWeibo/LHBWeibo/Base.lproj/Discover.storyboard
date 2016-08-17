@@ -7,7 +7,6 @@
         <!--发现-->
         <scene sceneID="sLX-yJ-TR3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8el-If-eBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="psv-f6-oJI" customClass="DiscoverViewController" customModule="LHBWeibo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OsO-Ha-gHt">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
@@ -20,6 +19,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="发现" id="Z8i-Uy-b7g"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8el-If-eBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-883.5" y="282.75"/>
         </scene>
