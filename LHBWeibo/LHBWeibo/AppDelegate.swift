@@ -14,6 +14,15 @@
  swift用的是.framework的动态库
  */
 
+//Othe授权
+//App Key：1321090536
+//App Secret：cdcbf3092f56d5dfe836162905879c54
+//回调地址：http://luohongbiaooauth.com
+//https://api.weibo.com/oauth2/authorize?client_id=1321090536&redirect_uri=http://luohongbiaooauth.com
+
+
+
+
 import UIKit
 
 @UIApplicationMain
@@ -24,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        var defaultVC : UIViewController?{
+            let isLogin = UserAccountViewMdoel.shareInstance.isLogin
+            return isLogin ? WelcomeViewController() : UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        }
+        
+        
+        
         UITabBar.appearance().tintColor = UIColor.orangeColor()
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
         //纯代码方案
@@ -31,6 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //window?.backgroundColor = UIColor.whiteColor()
         //window?.rootViewController = MainViewController()
         //window?.makeKeyAndVisible()
+        
+        
+        //不从MainStoryboard加载，因为当程序打开时，也要显示的是欢迎界面.所以自己创建window
+        //所以在上面写一个计算属性
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = defaultVC
+        window?.makeKeyAndVisible()
         
         return true
     }

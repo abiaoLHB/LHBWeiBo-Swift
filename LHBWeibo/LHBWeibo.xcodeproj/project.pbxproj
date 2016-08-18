@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		392AB19DB71EBE5E2DD76495 /* Pods_LHBWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */; };
+		EF159C0F1D64A95B00E215FD /* OauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF159C0D1D64A95B00E215FD /* OauthViewController.swift */; };
+		EF159C101D64A95B00E215FD /* OauthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF159C0E1D64A95B00E215FD /* OauthViewController.xib */; };
 		EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDAC1D61C79900248735 /* MainViewController.swift */; };
 		EF4AFDAF1D61C86100248735 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDAE1D61C86100248735 /* HomeViewController.swift */; };
 		EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB01D61C86F00248735 /* MessageViewController.swift */; };
@@ -22,6 +24,12 @@
 		EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6131D61B9FF00539F06 /* LaunchScreen.storyboard */; };
 		EFCBF6201D61B9FF00539F06 /* LHBWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF61F1D61B9FF00539F06 /* LHBWeiboTests.swift */; };
 		EFCBF62B1D61B9FF00539F06 /* LHBWeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF62A1D61B9FF00539F06 /* LHBWeiboUITests.swift */; };
+		EFDAEE3F1D6587E800F7A429 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAEE3E1D6587E800F7A429 /* Common.swift */; };
+		EFDAEE411D6594E700F7A429 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAEE401D6594E700F7A429 /* NetworkTools.swift */; };
+		EFDAEE431D659E2600F7A429 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAEE421D659E2600F7A429 /* UserAccount.swift */; };
+		EFDAEE451D65C0DB00F7A429 /* UserAccountViewMdoel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAEE441D65C0DB00F7A429 /* UserAccountViewMdoel.swift */; };
+		EFDAEE481D65FC6200F7A429 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAEE471D65FC6200F7A429 /* WelcomeViewController.swift */; };
+		EFDAEE4A1D65FC8600F7A429 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDAEE491D65FC8600F7A429 /* WelcomeViewController.xib */; };
 		EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C171D62DDD000F6A604 /* 纯代码方案.swift */; };
 		EFDD6C1B1D62E49F00F6A604 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C191D62E49F00F6A604 /* Home.storyboard */; };
 		EFDD6C1D1D62E4C000F6A604 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C1C1D62E4C000F6A604 /* Message.storyboard */; };
@@ -59,6 +67,8 @@
 		0A873DCF6EE95213C81A7CB3 /* Pods-LHBWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		82860A569C67E2A7A06CC566 /* Pods_LHBWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHBWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B84A8C253B44BE6E1B02BD /* Pods-LHBWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHBWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LHBWeibo/Pods-LHBWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		EF159C0D1D64A95B00E215FD /* OauthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthViewController.swift; sourceTree = "<group>"; };
+		EF159C0E1D64A95B00E215FD /* OauthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OauthViewController.xib; sourceTree = "<group>"; };
 		EF4AFDAC1D61C79900248735 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EF4AFDAE1D61C86100248735 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF4AFDB01D61C86F00248735 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +89,12 @@
 		EFCBF6261D61B9FF00539F06 /* LHBWeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LHBWeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF62A1D61B9FF00539F06 /* LHBWeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHBWeiboUITests.swift; sourceTree = "<group>"; };
 		EFCBF62C1D61B9FF00539F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDAEE3E1D6587E800F7A429 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		EFDAEE401D6594E700F7A429 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		EFDAEE421D659E2600F7A429 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		EFDAEE441D65C0DB00F7A429 /* UserAccountViewMdoel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewMdoel.swift; sourceTree = "<group>"; };
+		EFDAEE471D65FC6200F7A429 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		EFDAEE491D65FC8600F7A429 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		EFDD6C171D62DDD000F6A604 /* 纯代码方案.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "纯代码方案.swift"; sourceTree = "<group>"; };
 		EFDD6C1A1D62E49F00F6A604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		EFDD6C1C1D62E4C000F6A604 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Message.storyboard; path = ../../Message.storyboard; sourceTree = "<group>"; };
@@ -138,6 +154,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF159C0C1D64A94500E215FD /* Oauth */ = {
+			isa = PBXGroup;
+			children = (
+				EF159C0E1D64A95B00E215FD /* OauthViewController.xib */,
+				EF159C0D1D64A95B00E215FD /* OauthViewController.swift */,
+				EFDAEE421D659E2600F7A429 /* UserAccount.swift */,
+				EFDAEE441D65C0DB00F7A429 /* UserAccountViewMdoel.swift */,
+			);
+			path = Oauth;
+			sourceTree = "<group>";
+		};
 		EF4AFDA41D61C27100248735 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +177,7 @@
 		EF4AFDA51D61C27100248735 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				EFDAEE401D6594E700F7A429 /* NetworkTools.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -206,6 +234,7 @@
 		EF4AFDAB1D61C41400248735 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EFDAEE461D65FC3B00F7A429 /* Welcome */,
 				EF4AFDAC1D61C79900248735 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -240,6 +269,7 @@
 				EF4AFDA41D61C27100248735 /* Extension */,
 				EFDD6C341D63734600F6A604 /* CusTomUI */,
 				EF4AFDA51D61C27100248735 /* Lib */,
+				EFDAEE391D65857000F7A429 /* Common */,
 				EFDD6C291D631C5300F6A604 /* Base */,
 				EF4AFDA61D61C27100248735 /* MainWibo */,
 				EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */,
@@ -271,6 +301,23 @@
 			path = LHBWeiboUITests;
 			sourceTree = "<group>";
 		};
+		EFDAEE391D65857000F7A429 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFDAEE3E1D6587E800F7A429 /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFDAEE461D65FC3B00F7A429 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				EFDAEE471D65FC6200F7A429 /* WelcomeViewController.swift */,
+				EFDAEE491D65FC8600F7A429 /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		EFDD6C261D62EBA700F6A604 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +329,7 @@
 		EFDD6C291D631C5300F6A604 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EF159C0C1D64A94500E215FD /* Oauth */,
 				EFDD6C2A1D631C6500F6A604 /* BaseViewController.swift */,
 				EFDD6C2C1D631E8A00F6A604 /* VistorView.swift */,
 				EFDD6C2E1D631E9800F6A604 /* VistorView.xib */,
@@ -380,6 +428,7 @@
 				TargetAttributes = {
 					EFCBF6061D61B9FF00539F06 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GCWDE52XFU;
 					};
 					EFCBF61A1D61B9FF00539F06 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -416,8 +465,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF159C101D64A95B00E215FD /* OauthViewController.xib in Resources */,
 				EFCBF6151D61B9FF00539F06 /* LaunchScreen.storyboard in Resources */,
 				EFDD6C1B1D62E49F00F6A604 /* Home.storyboard in Resources */,
+				EFDAEE4A1D65FC8600F7A429 /* WelcomeViewController.xib in Resources */,
 				EFDD6C221D62E4ED00F6A604 /* Profile.storyboard in Resources */,
 				EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */,
 				EF7A5EE01D62192D0070CEF1 /* MainVCSettings.json in Resources */,
@@ -502,7 +553,12 @@
 				EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */,
 				EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */,
 				EFDD6C3A1D63790A00F6A604 /* PopoverViewController.swift in Sources */,
+				EFDAEE3F1D6587E800F7A429 /* Common.swift in Sources */,
 				EFDD6C311D6369DE00F6A604 /* UIBarButtonItem-Extension.swift in Sources */,
+				EFDAEE431D659E2600F7A429 /* UserAccount.swift in Sources */,
+				EFDAEE481D65FC6200F7A429 /* WelcomeViewController.swift in Sources */,
+				EFDAEE451D65C0DB00F7A429 /* UserAccountViewMdoel.swift in Sources */,
+				EF159C0F1D64A95B00E215FD /* OauthViewController.swift in Sources */,
 				EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */,
 				EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */,
 				EF9F76331D63FE6F00332A97 /* LHBPresentationController.swift in Sources */,
@@ -511,6 +567,7 @@
 				EFDD6C2B1D631C6500F6A604 /* BaseViewController.swift in Sources */,
 				EF4AFDB51D61CDF100248735 /* DiscoverViewController.swift in Sources */,
 				EFDD6C2D1D631E8A00F6A604 /* VistorView.swift in Sources */,
+				EFDAEE411D6594E700F7A429 /* NetworkTools.swift in Sources */,
 				EF9F76351D64356000332A97 /* PopoverViewAnimation.swift in Sources */,
 				EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */,
 				EFDD6C281D62F7C700F6A604 /* UIButton-Extension.swift in Sources */,
@@ -686,10 +743,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.company.LHBWeibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.weiboSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -701,10 +759,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LHBWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.company.LHBWeibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lhb.weiboSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//https://api.weibo.com/2/statuses/home_timeline .json?access_token=2.00gp3LpCszJ68B690a431cc3VfiIjD
 class HomeViewController: BaseViewController {
   
     //MARK: - 懒加载属性
@@ -40,7 +40,7 @@ extension HomeViewController{
     //设置右侧
     navigationItem.rightBarButtonItem = UIBarButtonItem(lhb_imageName: "navigationbar_pop")
     //设置中间的titleView
-    titleBtn.setTitle("coderWhy", forState: .Normal)
+    titleBtn.setTitle(UserAccountViewMdoel.shareInstance.account?.screen_name, forState: .Normal)
     titleBtn.addTarget(self, action: "titiBtnClick:", forControlEvents: .TouchUpInside)
     navigationItem.titleView = titleBtn
     }
