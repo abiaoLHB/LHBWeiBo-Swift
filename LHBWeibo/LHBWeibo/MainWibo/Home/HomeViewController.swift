@@ -12,13 +12,19 @@ class HomeViewController: BaseViewController {
   
     //MARK: - 懒加载属性
     private lazy var titleBtn : CustomTitleBtn = CustomTitleBtn()
+    //微博数据源数组
+    //封装了视图模型后，就不要存储下面这种模型了
+    //private lazy var statusesModelArray:[StatusModel] = [StatusModel]()
+    private lazy var statusesViewModelArray:[StatusViewModel] = [StatusViewModel]()
+    
+    
     //注意：在闭包当中如果使用当前对象的属性或者调用方法，也需要加self
     //两个地方需要使用self ：1、如果在一个函数中出现歧义
     //2、在闭包中如果使用当前对象的属性或者调用方法，也需要加self
     private lazy var popoverAnimation : PopoverViewAnimation = PopoverViewAnimation {[weak self](isPresentedCallBack) in
      self?.titleBtn.selected = isPresentedCallBack
     }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +35,14 @@ class HomeViewController: BaseViewController {
         }
         //2、设置导航栏的内容
         setupNavBar()
+        
+        //3、获取微博数据
+        loasStatues()
     }
    
 }
 
+//MARK: - 设置界面
 extension HomeViewController{
     private func setupNavBar(){
     //设置左侧
@@ -69,5 +79,62 @@ extension HomeViewController{
     }
 }
 
-
+//MARK: - 请求数据
+extension HomeViewController{
+    private func loasStatues(){
+        NetworkTools.shareInstance.loadStatues { (result, error) in
+            //校验
+            if error != nil{
+                print(error)
+                return
+            }
+            //获取可选类型中的数据
+            guard let resultArray = result else{
+                return
+            }
+            //拿到数据，遍历微博对应的字典数组
+            for statusDict in resultArray{
+                //转模型
+                let status = StatusModel(dict: statusDict)
+                //self.statusesModelArray.append(status)
+                let viewModel = StatusViewModel(status: status)
+                self.statusesViewModelArray.append(viewModel)
+            }
+        //刷新表格
+            self.tableView.reloadData()
+            
+        }
+    }
+}
+//MARK: - tableView数据源方法
+extension HomeViewController{
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusesViewModelArray.count
+    }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+       
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCellID")!
+        
+        let statusViewModel = statusesViewModelArray[indexPath.row]
+        
+        cell.textLabel?.text = statusViewModel.sourceText
+        
+        
+        return cell
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

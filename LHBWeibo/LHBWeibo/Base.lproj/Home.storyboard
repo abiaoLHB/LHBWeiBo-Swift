@@ -8,10 +8,20 @@
         <scene sceneID="01M-HT-P7T">
             <objects>
                 <tableViewController id="s1h-cb-dtm" customClass="HomeViewController" customModule="LHBWeibo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Azd-eQ-PYO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="Azd-eQ-PYO">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeCellID" rowHeight="73" id="m6J-hl-jMt">
+                                <rect key="frame" x="0.0" y="92" width="400" height="73"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m6J-hl-jMt" id="xKh-Pd-elf">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="72.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="s1h-cb-dtm" id="spa-wn-rIo"/>
                             <outlet property="delegate" destination="s1h-cb-dtm" id="qey-sl-VxG"/>
@@ -21,7 +31,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kWK-Up-jus" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-847.5" y="-1007.25"/>
+            <point key="canvasLocation" x="-848" y="-1008"/>
         </scene>
         <!--首页-->
         <scene sceneID="NcB-87-7Ji">
