@@ -22,6 +22,8 @@
 		EFBC57841D66AA070031B735 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC57831D66AA070031B735 /* NSDate-Extension.swift */; };
 		EFBC57861D66B04F0031B735 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC57851D66B04F0031B735 /* UserModel.swift */; };
 		EFBC57881D66B87E0031B735 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC57871D66B87E0031B735 /* StatusViewModel.swift */; };
+		EFC0D8261D66D8AD0017D741 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC0D8251D66D8AD0017D741 /* HomeTableViewCell.swift */; };
+		EFC0D8281D67073E0017D741 /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC0D8271D67073E0017D741 /* PicCollectionView.swift */; };
 		EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */; };
 		EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF60E1D61B9FF00539F06 /* Main.storyboard */; };
 		EFCBF6121D61B9FF00539F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCBF6111D61B9FF00539F06 /* Assets.xcassets */; };
@@ -85,6 +87,8 @@
 		EFBC57831D66AA070031B735 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
 		EFBC57851D66B04F0031B735 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EFBC57871D66B87E0031B735 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		EFC0D8251D66D8AD0017D741 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		EFC0D8271D67073E0017D741 /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
 		EFCBF6071D61B9FF00539F06 /* LHBWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LHBWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCBF60A1D61B9FF00539F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCBF60F1D61B9FF00539F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				EFDD6C371D6378FA00F6A604 /* PopoverView */,
 				EF4AFDAE1D61C86100248735 /* HomeViewController.swift */,
 				EFDD6C191D62E49F00F6A604 /* Home.storyboard */,
+				EFC0D8251D66D8AD0017D741 /* HomeTableViewCell.swift */,
+				EFC0D8271D67073E0017D741 /* PicCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 			files = (
 				EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */,
 				EFBC57841D66AA070031B735 /* NSDate-Extension.swift in Sources */,
+				EFC0D8261D66D8AD0017D741 /* HomeTableViewCell.swift in Sources */,
 				EFCBF60B1D61B9FF00539F06 /* AppDelegate.swift in Sources */,
 				EFDD6C3A1D63790A00F6A604 /* PopoverViewController.swift in Sources */,
 				EFDAEE3F1D6587E800F7A429 /* Common.swift in Sources */,
@@ -594,6 +601,7 @@
 				EFBC57881D66B87E0031B735 /* StatusViewModel.swift in Sources */,
 				EF9F76351D64356000332A97 /* PopoverViewAnimation.swift in Sources */,
 				EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */,
+				EFC0D8281D67073E0017D741 /* PicCollectionView.swift in Sources */,
 				EFDD6C281D62F7C700F6A604 /* UIButton-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

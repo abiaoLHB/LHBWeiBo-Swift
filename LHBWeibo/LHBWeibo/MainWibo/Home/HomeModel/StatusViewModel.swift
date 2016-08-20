@@ -22,6 +22,10 @@ class StatusViewModel: NSObject {
     //用户模型里的两个属性
     var verifiedImage : UIImage?
     var vipImage : UIImage?
+    //额外属性：目的是简化一些获取值的长度
+    var profileURL : NSURL? ///处理头像
+    
+    var picUrls : [NSURL] = [NSURL]() //处理微博配图，初始化数组
     
     
     // 自定义构造函数，要想创建statusViewModel，必须传进来一个要封装的model，否则没意义
@@ -67,6 +71,23 @@ class StatusViewModel: NSObject {
         let mbrank = status.user?.mbrank ?? 0
         if mbrank > 0 && mbrank <= 6 {
             vipImage = UIImage(named: "common_icon_membership_level\(mbrank)")
+        }
+        
+        //5 、处理头像url
+        let profiledUrlStr = status.user?.profile_image_url ?? ""
+        profileURL = NSURL(string: profiledUrlStr)
+        
+        //6、处理配图数据 
+        //获取配图数组
+        if let picUrlDictsArray = status.pic_urls {
+             //遍历配图字典数组
+            for picURLDict in picUrlDictsArray {
+                guard  let picURLStr = picURLDict["thumbnail_pic"] else{
+                    continue
+                }
+                print("picURLStr:\(picURLStr)")
+                picUrls.append(NSURL(string: picURLStr)!)
+            }
         }
         
     }

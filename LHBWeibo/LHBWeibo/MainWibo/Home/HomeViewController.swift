@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+
 //https://api.weibo.com/2/statuses/home_timeline .json?access_token=2.00gp3LpCszJ68B690a431cc3VfiIjD
 class HomeViewController: BaseViewController {
   
@@ -38,6 +40,10 @@ class HomeViewController: BaseViewController {
         
         //3、获取微博数据
         loasStatues()
+        
+        //4、tableView 根据约束来计算高度，需要设置下面两个属性，estimatedRowHeight是估算高度
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
     }
    
 }
@@ -83,16 +89,16 @@ extension HomeViewController{
 extension HomeViewController{
     private func loasStatues(){
         NetworkTools.shareInstance.loadStatues { (result, error) in
-            //校验
+            //1、校验
             if error != nil{
                 print(error)
                 return
             }
-            //获取可选类型中的数据
+            //2、获取可选类型中的数据
             guard let resultArray = result else{
                 return
             }
-            //拿到数据，遍历微博对应的字典数组
+            //3、拿到数据，遍历微博对应的字典数组
             for statusDict in resultArray{
                 //转模型
                 let status = StatusModel(dict: statusDict)
@@ -100,9 +106,38 @@ extension HomeViewController{
                 let viewModel = StatusViewModel(status: status)
                 self.statusesViewModelArray.append(viewModel)
             }
-        //刷新表格
-            self.tableView.reloadData()
             
+            //4、缓存图片
+            self.cacheImages(self.statusesViewModelArray)
+            
+            //5、刷新表格
+            //self.tableView.reloadData()
+            
+        }
+    }
+    
+    //缓存图片
+    private func cacheImages(viewModelsArr : [StatusViewModel]){
+        //0、创建group(组)
+        let group = dispatch_group_create()
+        
+        //1、换图图片
+        // 这里要下载完所有图片才刷新表格，因为当只有一张图片时，新浪没有返回图片的宽高，只能下载下来获取宽高，然后在刷新表格，显示出来
+        //把一个异步操作放在组里，等执行完组里所有的操作，在往下执行。也就是执行完下载后，刷新表格
+        for viewModels in viewModelsArr {
+            for picURL in viewModels.picUrls {
+                //进入组
+                dispatch_group_enter(group)
+                SDWebImageManager.sharedManager().downloadWithURL(picURL, options: [], progress: nil, completed: { (_, _, _, _) in
+                     print("下载了一张图片")
+                    //离开组
+                    dispatch_group_leave(group)
+                })
+            }
+        }
+        // 2、刷新表格
+        dispatch_group_notify(group, dispatch_get_main_queue()) { 
+            self.tableView.reloadData()
         }
     }
 }
@@ -112,14 +147,11 @@ extension HomeViewController{
         return statusesViewModelArray.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> HomeTableViewCell {
        
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCellID")!
-        
-        let statusViewModel = statusesViewModelArray[indexPath.row]
-        
-        cell.textLabel?.text = statusViewModel.sourceText
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCellID") as! HomeTableViewCell
+      
+        cell.viewModel = statusesViewModelArray[indexPath.row]
         
         return cell
     }
