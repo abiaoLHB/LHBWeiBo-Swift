@@ -15,11 +15,14 @@ private let itemMargin : CGFloat = 10.0   //配图之间的间距
 class HomeTableViewCell: UITableViewCell {
     //MARK: - 约束属性：微博正文要动态计算，但是如果两边都设置好约束的话，在动态计算会算不准。所以先设置好左边约束，随便给一个宽度，在根据屏幕计算正文的宽度
     @IBOutlet weak var contentWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var picViewWConstraint: NSLayoutConstraint!
     //距离底部的间距可以调整优先级（因为picview高度为0时，上面的控件），；例如把1000调位700，以消除警告
     @IBOutlet weak var picViewHConstraint: NSLayoutConstraint!
+    @IBOutlet weak var picViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var retweedContentLabelTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var bottomToolView: UIView!
+
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var verifiedImage: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
@@ -27,10 +30,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contenLabel: UILabel!
-    
     @IBOutlet weak var picCollectionView: PicCollectionView!
- 
-    
+    @IBOutlet weak var retweetedContentLabel: UILabel! //转发微博label
+    @IBOutlet weak var zhaunfaBgView: UIView!
     
     //自定义属性
     var viewModel:StatusViewModel? {
@@ -49,8 +51,14 @@ class HomeTableViewCell: UITableViewCell {
             vipImageView.image = viewModel.vipImage
             //6、设置时间的label
             timeLabel.text = viewModel.creatAtText
-            //7、来源
+            //7、微博正文
             contenLabel.text = viewModel.status?.text
+            //7.1设置来源
+            if let sourceText = viewModel.sourceText{
+                sourceLabel.text = "来自 " + sourceText
+            }else{
+                sourceLabel.text = nil
+            }
             //8、设置呢称颜色
             screenNameLabel.textColor = viewModel.vipImage == nil ? UIColor.blueColor() : UIColor.orangeColor()
             //9、动态计算配图的宽和高
@@ -59,6 +67,31 @@ class HomeTableViewCell: UITableViewCell {
             picViewHConstraint.constant = picViewSize.height
             //10、将配图数组传递给PicCollectionView
             picCollectionView.picURLs  = viewModel.picUrls
+            //11、设置转发微博的正文
+            if viewModel.status?.retweeted_status != nil{
+                //1、微博正文
+              if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,
+                    retweetText = viewModel.status?.retweeted_status?.text{
+                    retweetedContentLabel.text = "@"+"\(screenName): "+retweetText
+                retweedContentLabelTopConstraint.constant = 15
+                //2、处理背景
+                 zhaunfaBgView.hidden = false
+                }
+
+            }else{
+                retweetedContentLabel.text = nil
+                zhaunfaBgView.hidden = true
+                retweedContentLabelTopConstraint.constant = 0
+            }
+            
+            //12、计算cell高度
+            if viewModel.cellHeight == 0 {
+                //12.1强制布局
+                layoutIfNeeded()
+                //12.2获取底部工具栏的最大Y值
+                viewModel.cellHeight = CGRectGetMaxY(bottomToolView.frame)
+            }
+            
         }
     }
     
@@ -81,9 +114,12 @@ extension HomeTableViewCell{
     private func calculatePicViewSize(count : Int) -> CGSize {
         //1、没有配图
         if count == 0 {
+            picViewBottomConstraint.constant = 0
             return CGSizeZero
         }
       
+        picViewBottomConstraint.constant = 10
+        
         let layout = picCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
     
         //单张图片

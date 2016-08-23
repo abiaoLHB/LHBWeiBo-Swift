@@ -107,11 +107,13 @@ extension NetworkTools{
 
 //MARK: - 请求首页数据
 extension NetworkTools{
-    func loadStatues(finish : (result : [[String : AnyObject]]?,error : NSError?)->()) -> Void {
+    
+    func loadStatues(since_id : Int,max_id : Int,finish : (result : [[String : AnyObject]]?,error : NSError?)->()) -> Void {
+        
         //请求地址
         let statuesUrl = "https://api.weibo.com/2/statuses/home_timeline.json"
         //获取请求参数
-        let parameters  = ["access_token":(UserAccountViewMdoel.shareInstance.account?.access_token)!]
+        let parameters  = ["access_token":(UserAccountViewMdoel.shareInstance.account?.access_token)!,"since_id" : "\(since_id)","max_id" : "\(max_id)"]
         
         //发送请求
         requset(.GET, urlStr: statuesUrl, parameters: parameters) { (result, error) in

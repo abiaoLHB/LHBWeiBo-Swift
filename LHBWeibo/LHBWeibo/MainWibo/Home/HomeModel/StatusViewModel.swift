@@ -24,7 +24,7 @@ class StatusViewModel: NSObject {
     var vipImage : UIImage?
     //额外属性：目的是简化一些获取值的长度
     var profileURL : NSURL? ///处理头像
-    
+    var cellHeight : CGFloat = 0        //cell高度
     var picUrls : [NSURL] = [NSURL]() //处理微博配图，初始化数组
     
     
@@ -79,9 +79,12 @@ class StatusViewModel: NSObject {
         
         //6、处理配图数据 
         //获取配图数组
-        if let picUrlDictsArray = status.pic_urls {
+        let picURLDicts = status.pic_urls!.count != 0 ? status.pic_urls : status.retweeted_status?.pic_urls
+        
+        
+        if let picURLDicts = picURLDicts {
              //遍历配图字典数组
-            for picURLDict in picUrlDictsArray {
+            for picURLDict in picURLDicts {
                 guard  let picURLStr = picURLDict["thumbnail_pic"] else{
                     continue
                 }
@@ -93,3 +96,25 @@ class StatusViewModel: NSObject {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

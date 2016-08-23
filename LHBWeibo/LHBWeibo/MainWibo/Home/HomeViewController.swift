@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
 
 //https://api.weibo.com/2/statuses/home_timeline .json?access_token=2.00gp3LpCszJ68B690a431cc3VfiIjD
 class HomeViewController: BaseViewController {
@@ -39,16 +40,33 @@ class HomeViewController: BaseViewController {
         setupNavBar()
         
         //3、获取微博数据
-        loasStatues()
+        loasStatues(true)
         
         //4、tableView 根据约束来计算高度，需要设置下面两个属性，estimatedRowHeight是估算高度
-        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        //第一种方案
+        //根据子控件约束来自动计算父控件高度
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 200
+        
+        //4、第二种方案
+        //设置估算高度（删掉距离最底部的约束）
         tableView.estimatedRowHeight = 200
+        
+        //系统刷新
+        //refreshControl = UIRefreshControl()
+        //let demoView = UIView(frame: CGRect(x: 100, y: 0, width: 100, height: 40))
+        //demoView.backgroundColor = UIColor.yellowColor()
+        //refreshControl?.addSubview(demoView)
+        
+        //5、刷新、加载
+        setupHeaderView()
+        setupFooterView()
     }
    
 }
 
-//MARK: - 设置界面
+//MARK: - 设置UI界面
 extension HomeViewController{
     private func setupNavBar(){
     //设置左侧
@@ -60,6 +78,28 @@ extension HomeViewController{
     titleBtn.addTarget(self, action: "titiBtnClick:", forControlEvents: .TouchUpInside)
     navigationItem.titleView = titleBtn
     }
+    
+    //MARK: - 设置下拉刷新
+    private func setupHeaderView(){
+        //1、创建headerView
+        let headerView = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(HomeViewController.newData))
+        //2、设置headerView属性
+        headerView.setTitle("下拉刷新", forState: .Idle)
+        headerView.setTitle("释放刷新", forState: .Pulling)
+        headerView.setTitle("加载中", forState: .Refreshing)
+        //3、设置header
+        tableView.mj_header = headerView
+        //4、开始刷新
+        headerView.beginRefreshing()
+
+    }
+    
+    private func setupFooterView(){
+        //创建footview
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: "moreData")
+        
+    }
+    
 }
 
 //MARK: - 事件监听属性
@@ -87,32 +127,66 @@ extension HomeViewController{
 
 //MARK: - 请求数据
 extension HomeViewController{
-    private func loasStatues(){
-        NetworkTools.shareInstance.loadStatues { (result, error) in
-            //1、校验
-            if error != nil{
-                print(error)
-                return
-            }
-            //2、获取可选类型中的数据
-            guard let resultArray = result else{
-                return
-            }
-            //3、拿到数据，遍历微博对应的字典数组
-            for statusDict in resultArray{
-                //转模型
-                let status = StatusModel(dict: statusDict)
-                //self.statusesModelArray.append(status)
-                let viewModel = StatusViewModel(status: status)
-                self.statusesViewModelArray.append(viewModel)
-            }
-            
-            //4、缓存图片
-            self.cacheImages(self.statusesViewModelArray)
-            
-            //5、刷新表格
-            //self.tableView.reloadData()
-            
+    //MARK: - 加载最新的数据
+    @objc private func newData(){
+        loasStatues(true)
+    }
+    
+    @objc private func moreData(){
+        loasStatues(false)
+        print("moredata")
+    }
+    
+    //MARK: - 记载数据
+    private func loasStatues(isNewData : Bool){
+        // 获取since_id
+        var since_id = 0
+        var max_id = 0
+        
+        if isNewData{
+            since_id = self.statusesViewModelArray.first?.status?.mid ?? 0
+        }else{
+            max_id = self.statusesViewModelArray.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
+        }
+        
+       NetworkTools.shareInstance.loadStatues(since_id, max_id: max_id) { (result, error) in
+        //1、校验
+        if error != nil{
+            print(error)
+            return
+        }
+        //2、获取可选类型中的数据
+        guard let resultArray = result else{
+            return
+        }
+        //3、拿到数据，遍历微博对应的字典数组
+        var tempViewModel = [StatusViewModel]()
+        for statusDict in resultArray{
+            //转模型
+            let status = StatusModel(dict: statusDict)
+            //self.statusesModelArray.append(status)
+            let viewModel = StatusViewModel(status: status)
+            tempViewModel.append(viewModel)
+        }
+        //将数据放入到成员变量的数组中
+        if isNewData{
+            self.statusesViewModelArray = tempViewModel + self.statusesViewModelArray
+        }else{
+            self.statusesViewModelArray += tempViewModel
+        }
+        
+        
+        //4、缓存图片
+        //self.cacheImages(self.statusesViewModelArray)
+        //刷新后缓存最新数据就可以了
+        self.cacheImages(tempViewModel)
+        
+        //5、刷新表格
+        //self.tableView.reloadData()
+        
+        
+
         }
     }
     
@@ -138,6 +212,8 @@ extension HomeViewController{
         // 2、刷新表格
         dispatch_group_notify(group, dispatch_get_main_queue()) { 
             self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
     }
 }
@@ -154,6 +230,13 @@ extension HomeViewController{
         cell.viewModel = statusesViewModelArray[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+         //1、获取模型对象
+        let viewModel = statusesViewModelArray[indexPath.row]
+        return viewModel.cellHeight
+        
     }
 }
 

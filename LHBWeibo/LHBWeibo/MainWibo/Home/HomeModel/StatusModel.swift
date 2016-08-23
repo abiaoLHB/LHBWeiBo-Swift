@@ -25,8 +25,12 @@ class StatusModel: NSObject {
     var text : String?      ///微博的正文
     var mid : Int = 0       ///微博的ID
     var user : UserModel?   ///微博对应的用户
-    var pic_urls : [[String : String]]? //字典数组，key对应的value是String类型.?可能有值，也肯能没有值
+    var pic_urls : [[String : String]]? //微博配图字典数组，key对应的value是String类型.?可能有值，也肯能没有值
     
+    var retweeted_status : StatusModel?// 微博对应的转发微博
+    
+    
+   
     
 
 
@@ -42,9 +46,13 @@ class StatusModel: NSObject {
         super.init()
         setValuesForKeysWithDictionary(dict)
         
-        //再把用户字典转成用户模型
+        //1、再把用户字典转成用户模型
         if let userDict = dict["user"] as? [String : AnyObject] {
             user = UserModel(dict: userDict)
+        }
+        //2、将转发微博字典转成转发微博模型对象
+        if let retweetedStatusDict = dict["retweeted_status"] as? [String : AnyObject]{
+            retweeted_status = StatusModel(dict: retweetedStatusDict)
         }
     }
     override init() {

@@ -6,5 +6,6 @@ target 'LHBWeibo' do
     pod'AFNetworking'
     pod 'SVProgressHUD'
     pod 'SDWebImage'
+    pod 'MJRefresh'
     pod 'SnapKit'
 end
