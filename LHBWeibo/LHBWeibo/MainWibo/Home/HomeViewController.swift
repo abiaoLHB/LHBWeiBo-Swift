@@ -19,7 +19,8 @@ class HomeViewController: BaseViewController {
     //封装了视图模型后，就不要存储下面这种模型了
     //private lazy var statusesModelArray:[StatusModel] = [StatusModel]()
     private lazy var statusesViewModelArray:[StatusViewModel] = [StatusViewModel]()
-    
+    //提示新微博label
+    private lazy var tipLabel : UILabel = UILabel()
     
     //注意：在闭包当中如果使用当前对象的属性或者调用方法，也需要加self
     //两个地方需要使用self ：1、如果在一个函数中出现歧义
@@ -62,12 +63,15 @@ class HomeViewController: BaseViewController {
         //5、刷新、加载
         setupHeaderView()
         setupFooterView()
+        
+        setupTipLabel()
     }
    
 }
 
 //MARK: - 设置UI界面
 extension HomeViewController{
+    //MARK: - 设置导航栏
     private func setupNavBar(){
     //设置左侧
     navigationItem.leftBarButtonItem = UIBarButtonItem(lhb_imageName: "navigationbar_friendattention")
@@ -94,10 +98,24 @@ extension HomeViewController{
 
     }
     
+    //MARK: - 设置上拉加载
     private func setupFooterView(){
         //创建footview
         tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: "moreData")
         
+    }
+    
+    //MARK: - 设置新微博条数提示
+    private func setupTipLabel(){
+        //1、将tipLabel添加到父控件中
+        tipLabel.backgroundColor = UIColor.orangeColor()
+        navigationController?.navigationBar.insertSubview(tipLabel, atIndex: 0)
+        tipLabel.textColor = UIColor.whiteColor()
+        tipLabel.textAlignment = .Center
+        tipLabel.font = UIFont.systemFontOfSize(14)
+        tipLabel.hidden = true
+        //2、frame
+        tipLabel.frame = CGRect(x: 0, y: 10, width: UIScreen.mainScreen().bounds.width, height: 32)
     }
     
 }
@@ -212,8 +230,30 @@ extension HomeViewController{
         // 2、刷新表格
         dispatch_group_notify(group, dispatch_get_main_queue()) { 
             self.tableView.reloadData()
+            // 停止刷新、加载
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
+            
+            //显示提示的label
+            self.showTipLabel(viewModelsArr.count)
+            
+        }
+    }
+    
+    //MARK: - 显示提示的label
+    private func showTipLabel(count : Int){
+        //设置tiplabe属性
+        tipLabel.hidden = false
+        tipLabel.text = count == 0 ? "没有新微博" : "\(count) 条新微博"
+        //设置动画
+        UIView.animateWithDuration(1.0, animations: { 
+             self.tipLabel.frame.origin.y = 44
+            }) { (_) in
+             UIView.animateWithDuration(1.0, delay: 1.5, options: [], animations: {
+                self.tipLabel.frame.origin.y = 0
+                }, completion: { (_) in
+                    self.tipLabel.hidden = true
+             })
         }
     }
 }
