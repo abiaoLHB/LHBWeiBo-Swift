@@ -15,6 +15,10 @@
 		EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB01D61C86F00248735 /* MessageViewController.swift */; };
 		EF4AFDB51D61CDF100248735 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */; };
 		EF4AFDB71D61CE0100248735 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */; };
+		EF71B7B01D6D45C90098530F /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71B7AE1D6D45C90098530F /* ComposeViewController.swift */; };
+		EF71B7B11D6D45C90098530F /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF71B7AF1D6D45C90098530F /* ComposeViewController.xib */; };
+		EF71B7B31D6D49BC0098530F /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71B7B21D6D49BB0098530F /* ComposeTitleView.swift */; };
+		EF71B7B51D6D4F710098530F /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71B7B41D6D4F710098530F /* ComposeTextView.swift */; };
 		EF7A5EE01D62192D0070CEF1 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */; };
 		EF9F76331D63FE6F00332A97 /* LHBPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F76321D63FE6F00332A97 /* LHBPresentationController.swift */; };
 		EF9F76351D64356000332A97 /* PopoverViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F76341D64356000332A97 /* PopoverViewAnimation.swift */; };
@@ -80,6 +84,10 @@
 		EF4AFDB01D61C86F00248735 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		EF4AFDB41D61CDF100248735 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		EF4AFDB61D61CE0100248735 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EF71B7AE1D6D45C90098530F /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		EF71B7AF1D6D45C90098530F /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		EF71B7B21D6D49BB0098530F /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
+		EF71B7B41D6D4F710098530F /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		EF7A5EDF1D62192D0070CEF1 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		EF9F76321D63FE6F00332A97 /* LHBPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHBPresentationController.swift; sourceTree = "<group>"; };
 		EF9F76341D64356000332A97 /* PopoverViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewAnimation.swift; sourceTree = "<group>"; };
@@ -203,6 +211,7 @@
 				EF4AFDA91D61C27100248735 /* Message */,
 				EF4AFDA71D61C27100248735 /* Discover */,
 				EF4AFDAA1D61C27100248735 /* Profile */,
+				EF71B7AD1D6D45A80098530F /* Compose */,
 			);
 			path = MainWibo;
 			sourceTree = "<group>";
@@ -254,6 +263,17 @@
 				EF4AFDAC1D61C79900248735 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		EF71B7AD1D6D45A80098530F /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				EF71B7AF1D6D45C90098530F /* ComposeViewController.xib */,
+				EF71B7AE1D6D45C90098530F /* ComposeViewController.swift */,
+				EF71B7B21D6D49BB0098530F /* ComposeTitleView.swift */,
+				EF71B7B41D6D4F710098530F /* ComposeTextView.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 		EFBC57801D6690330031B735 /* HomeModel */ = {
@@ -502,6 +522,7 @@
 				EFDD6C3B1D63790A00F6A604 /* PopoverViewController.xib in Resources */,
 				EFDD6C1D1D62E4C000F6A604 /* Message.storyboard in Resources */,
 				EFDD6C2F1D631E9800F6A604 /* VistorView.xib in Resources */,
+				EF71B7B11D6D45C90098530F /* ComposeViewController.xib in Resources */,
 				EFDD6C201D62E4D500F6A604 /* Discover.storyboard in Resources */,
 				EFCBF6101D61B9FF00539F06 /* Main.storyboard in Resources */,
 			);
@@ -586,9 +607,11 @@
 				EFDAEE431D659E2600F7A429 /* UserAccount.swift in Sources */,
 				EFDAEE481D65FC6200F7A429 /* WelcomeViewController.swift in Sources */,
 				EFDAEE451D65C0DB00F7A429 /* UserAccountViewMdoel.swift in Sources */,
+				EF71B7B51D6D4F710098530F /* ComposeTextView.swift in Sources */,
 				EF159C0F1D64A95B00E215FD /* OauthViewController.swift in Sources */,
 				EFBC57861D66B04F0031B735 /* UserModel.swift in Sources */,
 				EF4AFDAD1D61C79900248735 /* MainViewController.swift in Sources */,
+				EF71B7B31D6D49BC0098530F /* ComposeTitleView.swift in Sources */,
 				EF4AFDB11D61C86F00248735 /* MessageViewController.swift in Sources */,
 				EF9F76331D63FE6F00332A97 /* LHBPresentationController.swift in Sources */,
 				EF4AFDAF1D61C86100248735 /* HomeViewController.swift in Sources */,
@@ -603,6 +626,7 @@
 				EFDD6C181D62DDD000F6A604 /* 纯代码方案.swift in Sources */,
 				EFC0D8281D67073E0017D741 /* PicCollectionView.swift in Sources */,
 				EFDD6C281D62F7C700F6A604 /* UIButton-Extension.swift in Sources */,
+				EF71B7B01D6D45C90098530F /* ComposeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
