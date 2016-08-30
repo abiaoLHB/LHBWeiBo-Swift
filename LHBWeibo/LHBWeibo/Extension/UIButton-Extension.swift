@@ -47,7 +47,23 @@ extension UIButton{
         setBackgroundImage(UIImage(named: bgImageName), forState: .Normal)
         setBackgroundImage(UIImage(named: bgImageName+"_highlighted"), forState: .Highlighted)
         sizeToFit()
+
+    }
+    
+    
+    
+    convenience init(bgColor : UIColor,fontSize : CGFloat,title : String,cornerRadiusSize : CGFloat){
+        self.init()
+        
+        setTitle(title, forState: .Normal)
+        backgroundColor = bgColor
+        titleLabel?.font = UIFont.systemFontOfSize(fontSize)
+        if cornerRadiusSize > 0.0  {
+            layer.cornerRadius = cornerRadiusSize
+            clipsToBounds = true
+        }
     }
     
     
 }
+

@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (3.4.1)
+  - HYLabel (1.0.2)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Alamofire (~> 3.4)
+  - HYLabel
   - MJRefresh
   - SDWebImage
   - SnapKit
@@ -33,11 +35,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  HYLabel: a1294c88a57fa0c71651e167a6cf2ffcf1de9c28
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 04ffae0eae6743b4aaafd48d995570dc6e519f7b
+PODFILE CHECKSUM: e63f51bf883c50be0a284f27a901438ae0f4e158
 
 COCOAPODS: 1.0.0.beta.4

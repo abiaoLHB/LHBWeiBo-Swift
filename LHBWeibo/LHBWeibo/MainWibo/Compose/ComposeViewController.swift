@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -80,9 +81,32 @@ extension ComposeViewController{
         self.view.endEditing(true)
         dismissViewControllerAnimated(true, completion: nil)
     }
-    //MARK: - 发送(要发微博无正文不能点击)
+    
+    //MARK: - 发送微博(要发微博无正文不能点击)
     @objc private func sendItemClick(){
-        print(textView.getEmoticonString())
+        //0、退出键盘，好看一点
+        textView.resignFirstResponder()
+        //1、获得要发布的文字
+        let statusText = (textView.getEmoticonString())
+        
+        //1.5、定义回调的闭包
+        let finishedCallBack = { (isSuccess : Bool) in
+            if !isSuccess{
+                SVProgressHUD.showErrorWithStatus("发送微博失败!")
+                return
+            }
+            SVProgressHUD.showSuccessWithStatus("发送成功")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        //2、获取要上船的图片.授权借口职能上船一张图片
+        if  let image = images.first {
+            //发送带图片的微博
+            NetworkTools.shareInstance.sendStats(statusText, image: image, isSuccess:finishedCallBack)
+        }else{
+            //发送不带图片的微博
+            NetworkTools.shareInstance.sendStats(statusText, isSuccess: finishedCallBack)
+        }
     }
     //MARK: - 处理键盘
     func keyboardDidChangeFrame(noti : NSNotification) -> Void {
@@ -98,7 +122,6 @@ extension ComposeViewController{
         UIView.animateWithDuration(duration) { () -> Void in
             self.view.layoutIfNeeded()
         }
-
     }
     //MARK: - 图片选择
     @IBAction func picPickerBtnClick() {

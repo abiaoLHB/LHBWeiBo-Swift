@@ -63,8 +63,8 @@ class HomeViewController: BaseViewController {
         //5、刷新、加载
         setupHeaderView()
         setupFooterView()
-        
         setupTipLabel()
+        setupNotifications()
     }
    
 }
@@ -118,10 +118,16 @@ extension HomeViewController{
         tipLabel.frame = CGRect(x: 0, y: 10, width: UIScreen.mainScreen().bounds.width, height: 32)
     }
     
+    //MARK: - 注册通知
+    private func setupNotifications(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.showPhotoBrowser(_:)), name: ShowPhototBrowserNoti, object: nil)
+    }
+    
 }
 
 //MARK: - 事件监听属性
 extension HomeViewController{
+    //MARK: - 导航栏用户名点击，转场动画
     @objc private func titiBtnClick(titleBtn : CustomTitleBtn){
         //这个状态不应有titleBtn.selected来决定，而是有是否要弹出动画来决定按钮图标状态。这时候，popoverAnimation内部发生了什么改变，要穿出来
         //titleBtn.selected = !titleBtn.selected
@@ -140,6 +146,16 @@ extension HomeViewController{
         //弹出
         presentViewController(popoverVC, animated: true, completion: nil)
         
+    }
+    
+    //MARK: - cell图片点击浏览
+    @objc private func showPhotoBrowser(noti : NSNotification){
+        //取出数据
+        let indexPath = noti.userInfo![ShowPhototBrowserIndexKey] as! NSIndexPath
+        let picURLs = noti.userInfo![ShowPhototBrowserURLsKey] as! [NSURL]
+        //model出控制器
+        let browserVc = PhotoBrowserController(indexPath: indexPath, picUrls: picURLs)
+        presentViewController(browserVc, animated: true, completion: nil)
     }
 }
 
@@ -221,7 +237,7 @@ extension HomeViewController{
                 //进入组
                 dispatch_group_enter(group)
                 SDWebImageManager.sharedManager().downloadWithURL(picURL, options: [], progress: nil, completed: { (_, _, _, _) in
-                     print("下载了一张图片")
+                     
                     //离开组
                     dispatch_group_leave(group)
                 })

@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+import HYLabel
 private let  edgeMargin : CGFloat = 15.0  //明确指定类型，类型不匹配无法计算
 private let itemMargin : CGFloat = 10.0   //配图之间的间距
 
@@ -29,9 +29,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var vipImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var contenLabel: UILabel!
+    @IBOutlet weak var contenLabel: HYLabel! //UILabel!
     @IBOutlet weak var picCollectionView: PicCollectionView!
-    @IBOutlet weak var retweetedContentLabel: UILabel! //转发微博label
+    @IBOutlet weak var retweetedContentLabel: HYLabel! //UILabel! //转发微博label
     @IBOutlet weak var zhaunfaBgView: UIView!
     
     //自定义属性
@@ -52,7 +52,8 @@ class HomeTableViewCell: UITableViewCell {
             //6、设置时间的label
             timeLabel.text = viewModel.creatAtText
             //7、微博正文
-            contenLabel.text = viewModel.status?.text
+//            contenLabel.text = viewModel.status?.text
+            contenLabel.attributedText = FindEmoticon.shareIntance.findAttrString(viewModel.status?.text, font: contenLabel.font)
             //7.1设置来源
             if let sourceText = viewModel.sourceText{
                 sourceLabel.text = "来自 " + sourceText
@@ -72,7 +73,11 @@ class HomeTableViewCell: UITableViewCell {
                 //1、微博正文
               if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,
                     retweetText = viewModel.status?.retweeted_status?.text{
-                    retweetedContentLabel.text = "@"+"\(screenName): "+retweetText
+                    //临时字符串接受
+                let tempRetweetText = "@"+"\(screenName): "+retweetText
+                
+                 retweetedContentLabel.attributedText = FindEmoticon.shareIntance.findAttrString(tempRetweetText, font: retweetedContentLabel.font)
+                
                 retweedContentLabelTopConstraint.constant = 15
                 //2、处理背景
                  zhaunfaBgView.hidden = false
@@ -99,13 +104,49 @@ class HomeTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        //1、设置微博正文的宽度
+        //1、设置微博正文的宽度约束
         contentWidthConstraint.constant = UIScreen.mainScreen().bounds.width - 2*edgeMargin
         //取出picCollectionView的layout,并强制转换成流水布局（不用as?了，因为默认时流水布局）
 //        let layout = picCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
 //        let imageViewW_H = (UIScreen.mainScreen().bounds.width - 2*edgeMargin - 2 * itemMargin)/3
 //        
 //        layout.itemSize = CGSize(width: imageViewW_H, height: imageViewW_H)
+        
+        
+        //2、可以设置HYLabel的颜色
+        contenLabel.matchTextColor = UIColor.blueColor()
+        retweetedContentLabel.matchTextColor = UIColor.orangeColor()
+        
+        
+        //3、微博正文的点击监听
+        // 监听@谁谁谁的点击
+        retweetedContentLabel.userTapHandler = { (label, user, range) in
+            print(label)
+            print(user)
+            print(range)
+        }
+        
+        // 监听链接的点击
+        retweetedContentLabel.linkTapHandler = { (label, link, range) in
+            print(label)
+            print(link)
+            print(range)
+        }
+        
+        // 监听话题的点击
+        retweetedContentLabel.topicTapHandler = { (label, topic, range) in
+            print(label)
+            print(topic)
+            print(range)
+        }
+        
+        // zhuafna监听话题的点击
+        retweetedContentLabel.topicTapHandler = { (label, topic, range) in
+            print(label)
+            print(topic)
+            print(range)
+        }
+        
     }
 }
 
@@ -126,14 +167,19 @@ extension HomeTableViewCell{
         if count == 1 {
             //取出图片
             let urlStr = viewModel?.picUrls.last?.absoluteString
-            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(urlStr)
+            guard let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(urlStr) else
+            {
+                return CGSizeZero
+            }
             
             //设置一张图片时的itemzise
-            layout.itemSize = CGSize(width: image.size.width*2.0, height: image.size.height*2.0)
+                layout.itemSize = CGSize(width: image.size.width*2.0, height: image.size.height * 2.0)
+            
             //获取图片宽高
             //sd会压缩2倍
             //return image.size
             return CGSize(width: image.size.width*2.0, height: image.size.height*2.0)
+            
         }
         
         

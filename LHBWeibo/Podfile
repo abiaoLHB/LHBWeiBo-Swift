@@ -8,4 +8,5 @@ target 'LHBWeibo' do
     pod 'SDWebImage'
     pod 'MJRefresh'
     pod 'SnapKit'
+    pod 'HYLabel'
 end

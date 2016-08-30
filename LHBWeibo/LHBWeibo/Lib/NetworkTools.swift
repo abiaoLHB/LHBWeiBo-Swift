@@ -49,6 +49,7 @@ class NetworkTools: AFHTTPSessionManager {
         return tools
     }()//小括号执行闭包
 }
+
 //MARK: - 封装请求方法
 extension NetworkTools{
   
@@ -128,9 +129,55 @@ extension NetworkTools{
     }
 }
 
+//MARK: - 发送微博
+extension NetworkTools{
+    func sendStats(statusText : String,isSuccess : (isSuccess : Bool)->()){
+         //1、获取请求的url
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        
+        //2、获取参数parameter
+        let postParameter = ["access_token":(UserAccountViewMdoel.shareInstance.account?.access_token)!,"status":statusText]
+        
+        //3、发送网络请求
+        requset(.POST, urlStr: urlString, parameters: postParameter) { (result, error) in
+            if(result != nil){
+                isSuccess(isSuccess: true)
+            }else{
+                isSuccess(isSuccess: false)
+            }
+        }
+        
+    }
+}
 
-
-
+//MARK: - 发送微博并携带参数
+extension NetworkTools{
+    func sendStats(statusText : String,image : UIImage,isSuccess : (isSuccess : Bool)->()){
+        
+        //1、获取请求的url
+        let urlString = "https://api.weibo.com/2/statuses/upload.json"
+        
+        //2、获取参数parameter
+        let postParameter = ["access_token":(UserAccountViewMdoel.shareInstance.account?.access_token)!,"status":statusText]
+        
+        //3、发送网络请求
+      POST(urlString, parameters: postParameter, constructingBodyWithBlock: { (formData) in
+        //将图片转成二进制
+        //let imageData = UIImagePNGRepresentation(image)//该方法不能压缩
+        if let imageData = UIImageJPEGRepresentation(image, 0.5){
+            //name传pic，和借口对应
+        formData.appendPartWithFileData(imageData, name: "pic", fileName: "随便写.png", mimeType: "image/png")
+        }
+        
+        }, success: { (_, _) in
+                isSuccess(isSuccess: true)
+        }) { (_, error) in
+            isSuccess(isSuccess: false)
+            print(error)
+        }
+    }
+    
+}
 
 
 

@@ -21,13 +21,13 @@ class PicCollectionView: UICollectionView {
     override func awakeFromNib() {
         super.awakeFromNib()
         //不建议自己设置为自己为代理，而是cell要展示数据，让cell成为UICollectionView的代理，这里为了封装，就让自己成为自己的代理。storyBoard中脱线设置自己为代理是不行的，只能用代码
-        dataSource = self;
+        dataSource = self
+        delegate = self
     }
 
 }
-//MARK: - UICollectionViewDataSource 代理方法
-
-extension PicCollectionView:UICollectionViewDataSource{
+//MARK: - UICollectionView 代理方法
+extension PicCollectionView:UICollectionViewDataSource,UICollectionViewDelegate{
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picURLs.count
@@ -42,6 +42,13 @@ extension PicCollectionView:UICollectionViewDataSource{
         cell.picURL = picURLs[indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //当这张图片被点击时，告诉控制器，并传递一些必要参数
+        let userInfo = [ShowPhototBrowserIndexKey:indexPath,ShowPhototBrowserURLsKey :picURLs]
+        //发出通知
+        NSNotificationCenter.defaultCenter().postNotificationName(ShowPhototBrowserNoti, object: nil, userInfo: userInfo)
     }
 }
 
