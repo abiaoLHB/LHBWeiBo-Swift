@@ -145,7 +145,7 @@ extension HomeTableViewCell{
         
         //3、有四张配图
         if count == 4 {
-            let picViewWH = imageViewW_H * 2 + itemMargin
+            let picViewWH = imageViewW_H * 2 + itemMargin + 1
             return CGSize(width: picViewWH, height: picViewWH)
         }
         

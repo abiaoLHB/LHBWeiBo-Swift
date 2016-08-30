@@ -12,6 +12,7 @@ import SnapKit
 class ComposeTextView: UITextView {
     //MARK: - 懒加载属性
     lazy var placeHolderLabel : UILabel = UILabel()
+
     
     //从xib加载写这个方法里也行
     required init?(coder aDecoder: NSCoder) {
