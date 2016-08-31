@@ -69,6 +69,7 @@
 		EFDD6C3A1D63790A00F6A604 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C381D63790A00F6A604 /* PopoverViewController.swift */; };
 		EFDD6C3B1D63790A00F6A604 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDD6C391D63790A00F6A604 /* PopoverViewController.xib */; };
 		EFDD6C3D1D637A1900F6A604 /* CustomTitleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD6C3C1D637A1900F6A604 /* CustomTitleBtn.swift */; };
+		EFED37B41D7678ED00C08C41 /* PhotoBrowseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED37B31D7678ED00C08C41 /* PhotoBrowseAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		EFDD6C381D63790A00F6A604 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		EFDD6C391D63790A00F6A604 /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		EFDD6C3C1D637A1900F6A604 /* CustomTitleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitleBtn.swift; sourceTree = "<group>"; };
+		EFED37B31D7678ED00C08C41 /* PhotoBrowseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowseAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 				EFD71DC61D757FE600510F69 /* PhotoBrowserController.swift */,
 				EFD71DC81D7596BF00510F69 /* PhotoBrowseViewCell.swift */,
 				EF81566E1D75BF5C00064795 /* ProgressView.swift */,
+				EFED37B31D7678ED00C08C41 /* PhotoBrowseAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				EFDD6C2D1D631E8A00F6A604 /* VistorView.swift in Sources */,
 				EFD71D871D75342600510F69 /* EmoticonPackage.swift in Sources */,
 				EFBC57821D6690840031B735 /* StatusModel.swift in Sources */,
+				EFED37B41D7678ED00C08C41 /* PhotoBrowseAnimator.swift in Sources */,
 				EFDAEE411D6594E700F7A429 /* NetworkTools.swift in Sources */,
 				EFD71D811D75342600510F69 /* EmioticonViewCell.swift in Sources */,
 				EFBC57881D66B87E0031B735 /* StatusViewModel.swift in Sources */,

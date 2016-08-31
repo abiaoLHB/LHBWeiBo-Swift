@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
   
     //MARK: - 懒加载属性
     private lazy var titleBtn : CustomTitleBtn = CustomTitleBtn()
+    //创建图片浏览动画类对象，以设置代理
+    private lazy var phototBroserAnmitor : PhotoBrowseAnimator = PhotoBrowseAnimator()
     //微博数据源数组
     //封装了视图模型后，就不要存储下面这种模型了
     //private lazy var statusesModelArray:[StatusModel] = [StatusModel]()
@@ -142,7 +144,8 @@ extension HomeViewController{
         //抽出动画代码后，让popoverAnimation对像成为代理
         popoverVC.transitioningDelegate = popoverAnimation
         popoverAnimation.popAnimationFrame =  CGRect(x: 100, y: 55, width: 180, height: 250)
-
+    
+        
         //弹出
         presentViewController(popoverVC, animated: true, completion: nil)
         
@@ -150,11 +153,24 @@ extension HomeViewController{
     
     //MARK: - cell图片点击浏览
     @objc private func showPhotoBrowser(noti : NSNotification){
-        //取出数据
+        //0、取出数据
         let indexPath = noti.userInfo![ShowPhototBrowserIndexKey] as! NSIndexPath
         let picURLs = noti.userInfo![ShowPhototBrowserURLsKey] as! [NSURL]
+        let object = noti.object as! PicCollectionView//该object就是PicCollectionView对象
+        
         //model出控制器
         let browserVc = PhotoBrowserController(indexPath: indexPath, picUrls: picURLs)
+        
+        //1、为了保证model后面的视图能看到，需要改变model是弹出样式
+        browserVc.modalPresentationStyle = .Custom
+        //2、设置转场代理
+        browserVc.transitioningDelegate = phototBroserAnmitor//必须在本类里遵守协议
+        //3、设置动画的代理
+        phototBroserAnmitor.presentedDelegate = object
+        phototBroserAnmitor.dismissDelegate = browserVc
+        //除给indexPath
+        phototBroserAnmitor.indexPath = indexPath
+        
         presentViewController(browserVc, animated: true, completion: nil)
     }
 }

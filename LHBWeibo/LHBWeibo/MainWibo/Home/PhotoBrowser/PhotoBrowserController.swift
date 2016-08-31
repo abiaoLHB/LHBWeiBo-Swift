@@ -34,7 +34,8 @@ class PhotoBrowserController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view.bounds.size.width += 20
+        //别用bouns
+        view.frame.size.width += 20
     }
     
     override func viewDidLoad() {
@@ -65,7 +66,7 @@ extension PhotoBrowserController{
             make.size.equalTo(CGSizeMake(90, 32))
         }
         saveBtn.snp_makeConstraints { (make) in
-            make.right.equalTo(-20)
+            make.right.equalTo(-40)
             make.bottom.equalTo(closeBtn.snp_bottom)
             make.size.equalTo(closeBtn.snp_size)
         }
@@ -157,7 +158,32 @@ extension PhotoBrowserController : PhotoBrowserViewCellDelegate{
 
 
 
+//MARK: - 遵守协议，实现消失动画
+extension PhotoBrowserController : AnimatorDismisDelegate{
+   
+    func disIndexPath() -> NSIndexPath {
+        //获取当前正在显示的indexpath
+        let cell = collectionView.visibleCells().first!
+        
+        return collectionView.indexPathForCell(cell)!
+    }
+    
+    //实现代理方法
+    func disImageView() -> UIImageView {
+        //1、创建UIImagView对象
+        let imageView = UIImageView()
+        //2、设置imageview的frame
+        let cell = collectionView.visibleCells().first! as! PhotoBrowseViewCell
+        
+        imageView.frame = cell.imageView.frame
+        imageView.image = cell.imageView.image
+        //3、设置imageview的属性
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }
 
+}
 
 
 

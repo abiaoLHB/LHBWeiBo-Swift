@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PicCollectionView: UICollectionView {
 
@@ -47,8 +48,8 @@ extension PicCollectionView:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //当这张图片被点击时，告诉控制器，并传递一些必要参数
         let userInfo = [ShowPhototBrowserIndexKey:indexPath,ShowPhototBrowserURLsKey :picURLs]
-        //发出通知
-        NSNotificationCenter.defaultCenter().postNotificationName(ShowPhototBrowserNoti, object: nil, userInfo: userInfo)
+        //发出通知 object 把自己发出去，好设置phtotbrwserAnimator的代理
+        NSNotificationCenter.defaultCenter().postNotificationName(ShowPhototBrowserNoti, object: self, userInfo: userInfo)
     }
 }
 
@@ -74,5 +75,50 @@ class picViewCollectionCell : UICollectionViewCell{
 }
 
 
+//给PhotoBrowseAnimator 提供图片的开发位置、结束位置等
+extension PicCollectionView : AnimatorPresetnecDelegate{
+    func startRect(indexPath: NSIndexPath) -> CGRect {
+        //1、必须先获取到cell
+        let cell = self.cellForItemAtIndexPath(indexPath)!
+        //2、获取到cell的frame，不是相对于cell父控件collectinView的frame,而是相对于这个控制器视图的frame，所以得做frame转化
+        let startFrame = self.convertRect(cell.frame, toCoordinateSpace: UIApplication.sharedApplication().keyWindow!)
+        
+        return startFrame
+    }
+    
+    func endRect(indexPath: NSIndexPath) -> CGRect {
+        //1、获取个位置的image对象
+        let picUrl = picURLs[indexPath.item]
+        let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(picUrl.absoluteString)
+        //2、计算结束后的frame
+        let x : CGFloat = 0
+        var y : CGFloat = 0
+        let w = UIScreen.mainScreen().bounds.width
+        let height : CGFloat = w / CGFloat(image.size.width) * CGFloat(image.size.height)
+        if height > UIScreen.mainScreen().bounds.height {//  大图
+            y = 0.0
+        }else{//小图
+            y = (UIScreen.mainScreen().bounds.height - height) * 0.5
+        }
+        
 
+        return CGRectMake(x, y, w, height)
+    }
+    
+    func imageView(indexPath: NSIndexPath) -> UIImageView {
+        
+        //1、创建UIImageView对象
+        let imageView = UIImageView()
+        
+        //2、获得该位置的image对象
+        let picUrl = picURLs[indexPath.item]
+        let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(picUrl.absoluteString)
+        // 3、设置图片、属性
+        imageView.image = image
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
 
