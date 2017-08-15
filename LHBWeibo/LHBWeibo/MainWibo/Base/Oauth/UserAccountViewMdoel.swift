@@ -12,7 +12,7 @@ import UIKit
 //class UserAccountTools: NSObject {}
 
 class UserAccountViewMdoel {
-    //MARK: - 将类设计成单例
+    //MARK: - 将类成单例设计
     static let shareInstance : UserAccountViewMdoel = UserAccountViewMdoel()
     
     //MARK: - account类型
